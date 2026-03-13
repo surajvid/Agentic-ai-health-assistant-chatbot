@@ -1,0 +1,286 @@
+Module 0 — Problem Framing
+1. Background
+
+Healthcare datasets often contain large volumes of structured patient information such as physiological indicators, lifestyle factors, and daily activity data. Analysts and healthcare professionals typically rely on manual analysis or traditional dashboards to understand patterns within such datasets.
+
+However, manual analysis has several limitations:
+
+It requires technical expertise in data analysis tools
+
+Insights are not easily accessible to non-technical users
+
+Exploring multiple hypotheses can be slow
+
+Interactive exploration is limited
+
+Recent advancements in Large Language Models (LLMs) and agentic workflows make it possible to build systems that allow users to ask natural language questions about datasets and receive grounded analytical insights.
+
+This project aims to design a Conversational AI system capable of analyzing structured health datasets and answering user questions using a combination of analytical tools and LLM-based explanations.
+
+2. Problem Statement
+
+Design a conversational AI system that can:
+
+Analyze structured health-related datasets
+
+Extract meaningful patterns related to wellness risk
+
+Answer user questions in natural language
+
+Ensure responses remain grounded in the data
+
+Enforce safety and ethical constraints, particularly around healthcare advice
+
+The system should combine data analysis tools with LLM-based reasoning and explanation, ensuring that the LLM does not hallucinate or produce unsupported claims.
+
+3. Objective
+
+The primary objective of this project is to build an agentic conversational analytics system capable of:
+
+Interpreting user questions
+
+Routing them to appropriate analytical tools
+
+Generating structured analytical summaries
+
+Producing safe, grounded explanations using an LLM
+
+The system should demonstrate a modular architecture that separates:
+
+data processing
+
+analytical reasoning
+
+policy enforcement
+
+natural language generation
+
+4. Dataset Description
+
+The project uses two structured datasets representing patient-level and activity-level information.
+
+Dataset 1 — Patient Health Profile
+
+This dataset contains patient-level health indicators, including:
+
+patient demographics (age, sex)
+
+physiological indicators (BMI, hemoglobin levels)
+
+lifestyle factors (smoking, alcohol consumption)
+
+health conditions (kidney disease, thyroid disorders)
+
+stress levels
+
+dietary patterns
+
+Each row represents a unique patient.
+
+Key fields include:
+
+patient_number
+
+age
+
+bmi
+
+smoking
+
+level_of_stress
+
+salt_content_in_the_diet
+
+alcohol_consumption_per_day
+
+blood_pressure_abnormality
+
+chronic_kidney_disease
+
+Dataset 2 — Daily Activity Tracking
+
+This dataset records daily physical activity data.
+
+Each row represents:
+
+patient_number + day_number
+
+Fields include:
+
+patient_number
+
+day_number
+
+physical_activity
+
+This dataset allows us to compute:
+
+average activity levels
+
+activity distribution
+
+correlations between activity and health indicators
+
+5. Key Analytical Questions
+
+The system should be able to answer questions such as:
+
+Wellness risk questions
+
+What patterns indicate higher wellness risk in the dataset?
+
+Which factors appear most associated with elevated risk?
+
+Lifestyle impact
+
+How does smoking relate to wellness risk?
+
+How does alcohol consumption correlate with risk indicators?
+
+Activity patterns
+
+How does physical activity relate to wellness outcomes?
+
+Are low-activity patients more likely to appear in high-risk groups?
+
+Stress patterns
+
+Does higher stress correlate with other health indicators?
+
+General dataset insights
+
+What major trends exist in the population?
+
+Which risk factors appear most prevalent?
+
+6. System Users
+
+The system is designed for users who may not have deep data analysis expertise.
+
+Potential users include:
+
+healthcare analysts
+
+wellness program managers
+
+insurance analysts
+
+clinical researchers
+
+health data scientists
+
+health policy teams
+
+The conversational interface allows them to explore insights without writing code.
+
+7. Ethical and Safety Considerations
+
+Healthcare applications require strict attention to ethical constraints.
+
+This system implements several safeguards.
+
+No medical diagnosis
+
+The system does not diagnose diseases.
+
+No prescriptions
+
+The system does not recommend medications or treatments.
+
+Informational insights only
+
+Responses are limited to:
+
+data-driven observations
+
+general wellness insights
+
+statistical patterns
+
+Professional consultation reminder
+
+When relevant, the system reminds users that healthcare decisions should involve licensed medical professionals.
+
+8. Key Design Principles
+
+The system architecture follows several design principles.
+
+Tool-first reasoning
+
+Analytical insights are generated using deterministic Python analysis tools, not the LLM directly.
+
+Grounded LLM responses
+
+The LLM only receives structured summaries generated by analytical tools, preventing hallucinated insights.
+
+Modular architecture
+
+The system separates:
+
+data processing
+
+analytics tools
+
+policy enforcement
+
+LLM prompting
+
+workflow orchestration
+
+Agentic workflow
+
+User queries are routed through a LangGraph workflow that determines:
+
+query type
+
+safety validation
+
+analytical tools required
+
+final response generation
+
+9. Success Criteria
+
+The system is considered successful if it can:
+
+Correctly process and integrate the datasets
+
+Answer analytical questions using grounded data summaries
+
+Prevent unsafe healthcare responses
+
+Provide clear and concise natural language explanations
+
+Maintain a modular architecture that supports future extensions
+
+10. Scope Limitations
+
+This project intentionally excludes several capabilities.
+
+No patient-level predictions
+
+The system does not predict individual medical outcomes.
+
+No real-time clinical use
+
+The system is designed for analytical exploration, not clinical decision-making.
+
+No training on medical data
+
+The LLM is not fine-tuned on healthcare datasets.
+
+11. Future Extensions
+
+Potential extensions include:
+
+integrating additional health datasets
+
+advanced statistical modeling
+
+predictive risk modeling
+
+personalized wellness recommendations
+
+continuous monitoring of health indicators
+
+reinforcement learning for query optimization
