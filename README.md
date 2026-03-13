@@ -101,8 +101,7 @@ Module 11: Evaluation
     ↓
 Module 12: Logging & Monitoring
 
-
-### 5. Module Breakdown
+### 5.Module Breakdown
 
 Phase 1 — Foundation
 
